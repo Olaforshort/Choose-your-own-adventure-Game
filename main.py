@@ -6,6 +6,17 @@ def game ():
   choice_1 = input("Left or Right? (left/right) ")
   if choice_1 == "left":
     response = input("Interesting, you've never seen this stray dog before. \nHe looks friendly. \nShould we pet him? (pet/run) ")
+    
+    if response == "run":
+      response == input("He chases you. There's a creepy abandoned building up ahead.\nShould we hide or keep going? (hide/go)")
+  
+  else:
+    response = input("A thunderstorm approaches \nDo you go home to wait it out or keep going? (home/go)")
+
+    if response == "home":
+      response = input("You don't make it in time and are struck by lightning")
+    else:
+      response = input("You're sense of adventure keeps you forging ahead. \nYou find $100 in a rain gutter.") 
 
 
 
@@ -24,7 +35,7 @@ while True:
     age = int(age)
     break
   except ValueError:
-    print("Numbers only please")
+    print("Numbers (no decimals or fractions)only please")
 
     
 
