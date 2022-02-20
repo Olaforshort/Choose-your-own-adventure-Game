@@ -1,22 +1,35 @@
+#Initialize health 
+
+
 #GAME BODY 
-def game ():
+def game():
+  health = 100 
+  print("You are starting with ", health, "health")
   print("Here's your first choice.")
 
 #INITIAL BRANCH 
-  choice_1 = input("Left or Right? (left/right) ")
+  choice_1 = input("Left or Right? (left/right) ").lower()
   if choice_1 == "left":
-    response = input("Interesting, you've never seen this stray dog before. \nHe looks friendly. \nShould we pet him? (pet/run) ")
+      response = input("Interesting, you've never seen this stray dog before. \nHe looks friendly. \nShould we pet him? (pet/run) ")
     
-    if response == "run":
-      response == input("He chases you. There's a creepy abandoned building up ahead.\nShould we hide or keep going? (hide/go)")
+      if response == "run":
+        response == input("He chases you. There's a creepy abandoned building up ahead.\nShould we hide or keep going? (hide/go)").lower()
   
-  else:
-    response = input("A thunderstorm approaches \nDo you go home to wait it out or keep going? (home/go)")
+  elif choice_1 == "right":
+      response = input("A thunderstorm approaches \nDo you go home to wait it out or keep going? (home/go)").lower()
 
-    if response == "home":
-      response = input("You don't make it in time and are struck by lightning")
-    else:
-      response = input("You're sense of adventure keeps you forging ahead. \nYou find $100 in a rain gutter.") 
+      if response == "home":
+        response = input("You don't make it in time and are struck by lightning").lower()
+        health -= 100
+        return(health)
+        print(check_health(health))
+        
+      
+      else:
+        response = input("You're sense of adventure keeps you forging ahead. \nYou find $100 in a rain gutter.").lower() 
+        return(health)
+  else:
+      print("invalid response")
 
 
 
@@ -47,6 +60,7 @@ while True:
 #NAME AND AGE OUTPUT
 print("Hello", name, "you are", age, "years old.") 
 
+
 #DECISION BODY FOR GAME CONSENT
 
 if age >= 18: 
@@ -69,4 +83,17 @@ else:
   else:
     print("Bye")
 
+#CHECK HEALTH
+def check_health(health):
+    if health <= 0:
+      game.exit("You Lost")
+      
+      play_again = input("Would you like to play again? (yes/no) ").lower()
+
+      if play_again == "yes":
+        game()
+      else:
+        print("Bye")
+    else:
+      print("You have",health, "health")
 
