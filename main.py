@@ -1,3 +1,8 @@
+def game ():
+  print("Here's your first choice.")
+  
+  choice_1 = input("Left or Right? (left/right) ")
+
 print(
     "Welcome to my first choose your own adventure game! \nLet's get acquainted."
 )
@@ -12,6 +17,7 @@ if age >= 18:
   play_consent = input("Do you want to play? ").lower()
   if play_consent == "yes" :
     print("Let's play")
+    game()
   else:
     print("Bye")
 else:
@@ -21,6 +27,7 @@ else:
 
   if adult_supervision == "yes":
     print("Let's play!")
+    game()
   else:
     ("Bye")
 
